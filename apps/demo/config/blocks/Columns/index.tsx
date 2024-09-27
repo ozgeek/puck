@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentConfig } from "@/core/types";
 import styles from "./styles.module.css";
 import { getClassNameFactory } from "@/core/lib";
-import { DropZone } from "@/core/components/DropZone";
+//import { DropZone } from "@/core/components/DropZone";
 import { Section } from "../../components/Section";
 
 const getClassName = getClassNameFactory("Columns", styles);
@@ -49,7 +49,7 @@ export const Columns: ComponentConfig<ColumnsProps> = {
     distribution: "auto",
     columns: [{}, {}],
   },
-  render: ({ columns, distribution }) => {
+  render: ({ columns, distribution , puck: { renderDropZone }}) => {
     return (
       <Section>
         <div
@@ -73,10 +73,7 @@ export const Columns: ComponentConfig<ColumnsProps> = {
                     : "",
               }}
             >
-              <DropZone
-                zone={`column-${idx}`}
-                disallow={["Hero", "Logos", "Stats"]}
-              />
+              {renderDropZone({ zone:`column-${idx}`, disallow:["Hero", "Logos", "Stats"]})}
             </div>
           ))}
         </div>

@@ -18,6 +18,7 @@ export * from "./components/DropZone";
 export * from "./components/IconButton";
 export * from "./components/Puck";
 export * from "./components/Render";
+//export * from "./components/ServerRender";
 
 export * from "./lib/migrate";
 export * from "./lib/transform-props";

@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentConfig } from "@/core/types";
 import styles from "./styles.module.css";
 import { getClassNameFactory } from "@/core/lib";
-import { DropZone } from "@/core/components/DropZone";
+//import { DropZone } from "@/core/components/DropZone";
 import { Section } from "../../components/Section";
 
 const getClassName = getClassNameFactory("Flex", styles);
@@ -35,7 +35,7 @@ export const Flex: ComponentConfig<FlexProps> = {
     items: [{}, {}],
     minItemWidth: 356,
   },
-  render: ({ items, minItemWidth }) => {
+  render: ({ items, minItemWidth , puck: { renderDropZone }}) => {
     return (
       <Section>
         <div className={getClassName()}>
@@ -45,7 +45,7 @@ export const Flex: ComponentConfig<FlexProps> = {
               className={getClassName("item")}
               style={{ minWidth: item.minItemWidth || minItemWidth }}
             >
-              <DropZone zone={`item-${idx}`} />
+              {renderDropZone({ zone:`column-${idx}`})}
             </div>
           ))}
         </div>

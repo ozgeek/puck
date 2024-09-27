@@ -198,7 +198,11 @@ const CustomPuck = ({ dataKey }: { dataKey: string }) => {
       <div style={{ position: "sticky", top: 0, zIndex: 2 }}>
         <CustomHeader
           onPublish={async (data: Data) => {
-            localStorage.setItem(dataKey, JSON.stringify(data));
+              const path = '/a';
+              await fetch("/puck/api", {
+                  method: "post",
+                  body: JSON.stringify({ data, path}),
+              });
           }}
         />
       </div>

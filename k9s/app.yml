@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cmsbuilder-next-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cmsbuilder-next-front
+  template:
+    metadata:
+      labels:
+        app: cmsbuilder-next-front
+    spec:
+      containers:
+        - name: cmsbuilder-next-front
+          image: localhost:32000/cmsbuilder-next-front:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "1000M"
+              cpu: "500m"
+            limits:
+              memory: "4000M"
+              cpu: "5000m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cmsbuilder-next-front
+spec:
+  ports:
+    - name: tcp
+      port: 80
+      targetPort: 3000
+  selector:
+    app: cmsbuilder-next-front

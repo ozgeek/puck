@@ -3,7 +3,8 @@ import React from "react";
 import { ComponentConfig } from "@/core/types";
 import styles from "./styles.module.css";
 import { getClassNameFactory } from "@/core/lib";
-import { Button } from "@/core/components/Button";
+//import { Button } from "@/core/components/Button";
+import { Button } from "@nextui-org/button";
 import { Section } from "../../components/Section";
 
 const getClassName = getClassNameFactory("ButtonGroup", styles);
@@ -55,9 +56,11 @@ export const ButtonGroup: ComponentConfig<ButtonGroupProps> = {
             <Button
               key={i}
               href={button.href}
-              variant={button.variant}
-              size="large"
-              tabIndex={puck.isEditing ? -1 : undefined}
+              //variant={'solid'}
+              color={button.variant}
+              //variant={button.variant}
+              size="lg"
+              //tabIndex={puck.isEditing ? -1 : undefined}
             >
               {button.label}
             </Button>

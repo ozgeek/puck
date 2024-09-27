@@ -17,12 +17,15 @@
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
+    "autoprefixer": "^10.4.20",
     "conventional-recommended-bump": "^6.0.5",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "lerna": "^7.1.1",
+    "postcss": "^8.4.47",
     "prettier": "^2.5.1",
     "standard-changelog": "^2.0.21",
+    "tailwindcss": "^3.4.13",
     "turbo": "^1.9.7"
   },
   "name": "puck-repo",

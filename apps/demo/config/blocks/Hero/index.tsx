@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React from "react";
 import { ComponentConfig } from "@/core/types";
 import styles from "./styles.module.css";
 import { getClassNameFactory } from "@/core/lib";
-import { Button } from "@/core/components/Button";
+//import { Button } from "@/core/components/Button";
+import { Button } from "@nextui-org/button";
 import { Section } from "../../components/Section";
 import { quotes } from "./quotes";
 
@@ -189,7 +190,6 @@ export const Hero: ComponentConfig<HeroProps> = {
   render: ({ align, title, description, buttons, padding, image, puck }) => {
     // Empty state allows us to test that components support hooks
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [_] = useState(0);
 
     return (
       <Section
@@ -222,9 +222,9 @@ export const Hero: ComponentConfig<HeroProps> = {
                 <Button
                   key={i}
                   href={button.href}
-                  variant={button.variant}
-                  size="large"
-                  tabIndex={puck.isEditing ? -1 : undefined}
+                  //variant={button.variant}
+                  size="lg"
+                  //tabIndex={puck.isEditing ? -1 : undefined}
                 >
                   {button.label}
                 </Button>

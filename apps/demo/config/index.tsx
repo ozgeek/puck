@@ -9,6 +9,9 @@ import { Logos, LogosProps } from "./blocks/Logos";
 import { Stats, StatsProps } from "./blocks/Stats";
 import { Text, TextProps } from "./blocks/Text";
 import { VerticalSpace, VerticalSpaceProps } from "./blocks/VerticalSpace";
+import {HeroTailwind, HeroTailwindProps} from "./blocks/Hero2";
+import {GalleryProps, Gallery} from "./blocks/Gallery";
+import {Features, FeaturesProps} from "./blocks/Features";
 
 import Root, { RootProps } from "./root";
 
@@ -17,8 +20,11 @@ export type { RootProps } from "./root";
 export type Props = {
   ButtonGroup: ButtonGroupProps;
   Card: CardProps;
+  Gallery: GalleryProps;
   Columns: ColumnsProps;
   Hero: HeroProps;
+  HeroTailwind: HeroTailwindProps;
+  Features: FeaturesProps;
   Heading: HeadingProps;
   Flex: FlexProps;
   Logos: LogosProps;
@@ -58,8 +64,11 @@ export const conf: UserConfig = {
   components: {
     ButtonGroup,
     Card,
+    Gallery,
     Columns,
     Hero,
+    HeroTailwind,
+    Features,
     Heading,
     Flex,
     Logos,
