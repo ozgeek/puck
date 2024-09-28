@@ -1,2 +1,2 @@
-export { default } from "./client/page";
-export * from "./client/page";
+export { default } from "./client/[...puckPath]/page";
+export * from "./client/[...puckPath]/page";

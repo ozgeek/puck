@@ -7,13 +7,16 @@ const middleware: NextMiddleware = async (request) => {
 
   const { url, nextUrl, headers, referrer } = request;
   const { host, pathname, search } = nextUrl;
-  const hostname = headers.get('host').split(':')[0];
-  console.log(pathname, search, hostname);
-  console.log('Middlewear triggered');
-  //X-Forwarded-Host
-  //return NextResponse.redirect();
-  return NextResponse.rewrite(`http://localhost:3000/server/${hostname}${pathname}${search}`);
-  //return NextResponse.next();
+  if (headers !== null && headers !== undefined && headers.has('host')) {
+    const hostname = headers.get('host')?.split(':')[0] || nextUrl.hostname;
+    console.log(pathname, search, hostname);
+    console.log('Middlewear triggered');
+    //X-Forwarded-Host
+    //return NextResponse.redirect();
+    return NextResponse.rewrite(`http://localhost:3000/server/${hostname}${pathname}${search}`);
+  } else {
+    return NextResponse.next();
+  }
 };
 
 export default middleware;

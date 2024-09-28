@@ -7,9 +7,8 @@ import { getPage } from "../../../lib/get-page";
 import { Config } from "@/core"
 import { Data } from "@/core/types/Data"
 
-export async function Client({ path }: { path: string }) {
+export async function Client({ path, isEdit}: { path: string; isEdit: boolean}) {
   const data = await getPage(path);
-  const isEdit = true;
   console.log('data', data, path)
 
   if (isEdit) {
@@ -17,7 +16,7 @@ export async function Client({ path }: { path: string }) {
       <div>
         <Puck
           config={config as Config}
-          data={data ?? initialData as Data}
+          data={(data ?? initialData) as Data}
           onPublish={async (data) => {
               await fetch("/puck/api", {
                   method: "post",
