@@ -7,7 +7,7 @@ const middleware: NextMiddleware = async (request) => {
 
   const { url, nextUrl, headers, referrer } = request;
   const { host, hostname, pathname, search } = nextUrl;
-  console.log({pathname, search, headers});
+  console.log(pathname, search, hostname);
   console.log('Middlewear triggered');
   //X-Forwarded-Host
   //return NextResponse.redirect();
@@ -18,5 +18,5 @@ const middleware: NextMiddleware = async (request) => {
 export default middleware;
 
 export const config = {
-  matcher: ["/((?!api|_next/static|icon.png|favicon.ico|images|videos|robots.txt|sitemap|custom-ui).*)"],
+  matcher: ["/((?!api|_next/static|icon.png|favicon.ico|images|videos|robots.txt|sitemap|custom-ui|server).*)"],
 }
