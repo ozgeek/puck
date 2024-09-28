@@ -3,12 +3,12 @@ import {Render} from "@/core/rsc"
 import config from "../../../config/index";
 import { Config } from "@/core"
 import { Data } from "@/core/types/Data"
-export async function generateStaticParams() {
+/*export async function generateStaticParams() {
   console.log('generateStaticParams')
   return [
     { params: { puckPath: ['/']} }
   ]
-}
+}*/
 
 export default async function Page({
   params: { puckPath = [] },

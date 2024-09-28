@@ -9,11 +9,11 @@ const middleware: NextMiddleware = async (request) => {
   const { host, pathname, search } = nextUrl;
   if (headers !== null && headers !== undefined && headers.has('host')) {
     const hostname = headers.get('host')?.split(':')[0] || nextUrl.hostname;
-    console.log(pathname, search, hostname);
+    console.log(pathname, search, hostname, request.url);
     console.log('Middlewear triggered');
     //X-Forwarded-Host
     //return NextResponse.redirect();
-    return NextResponse.rewrite(`http://localhost:3000/server/${hostname}${pathname}${search}`);
+    return NextResponse.rewrite(new URL(`/server/${hostname}${pathname}${search}`, request.url));
   } else {
     return NextResponse.next();
   }
