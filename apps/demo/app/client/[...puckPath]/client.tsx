@@ -2,13 +2,14 @@
 
 import { Button, Puck, Render } from "@/core";
 import headingAnalyzer from "@/plugin-heading-analyzer/src/HeadingAnalyzer";
-import config from "../../config";
-import { getPage } from "../../lib/get-page";
+import config, {initialData} from "../../../config";
+import { getPage } from "../../../lib/get-page";
 import { Config } from "@/core"
 import { Data } from "@/core/types/Data"
 
-export async function Client({ path, isEdit }: { path: string; isEdit: boolean }) {
+export async function Client({ path }: { path: string }) {
   const data = await getPage(path);
+  const isEdit = true;
   console.log('data', data, path)
 
   if (isEdit) {
@@ -16,7 +17,7 @@ export async function Client({ path, isEdit }: { path: string; isEdit: boolean }
       <div>
         <Puck
           config={config as Config}
-          data={data as Data}
+          data={data ?? initialData as Data}
           onPublish={async (data) => {
               await fetch("/puck/api", {
                   method: "post",
