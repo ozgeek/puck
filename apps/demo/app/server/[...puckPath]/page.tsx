@@ -1,8 +1,6 @@
-import { notFound } from "next/navigation";
 import { getPage } from "../../../lib/get-page";
 import {Render} from "@/core/rsc"
 import config from "../../../config/index";
-import {NextUIProvider} from "@nextui-org/system";
 import { Config } from "@/core"
 import { Data } from "@/core/types/Data"
 export async function generateStaticParams() {
@@ -23,12 +21,10 @@ export default async function Page({
   console.log(data)
   if (!data) {
     console.log('not found')
-    return notFound();
+    return <div>Page not found</div>;
   }
   //sconsole.log(JSON.stringify(config))
-  return(<NextUIProvider>
-    <Render config={config as Config} data={data as Data} />
-  </NextUIProvider>)
+  return(<Render config={config as Config} data={data as Data} />)
 }
 
 // Force Next.js to produce static pages: https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamic

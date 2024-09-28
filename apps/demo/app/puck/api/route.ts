@@ -18,9 +18,12 @@ export async function POST(request: Request) {
 
   fs.writeFileSync("database.json", JSON.stringify(updatedData));
 
+  console.log("Data saved to database.json");
+  console.log(payload.path)
   // Purge Next.js cache
   revalidatePath(payload.path);
   revalidatePath('/server');
+  revalidatePath('/');
 
   return NextResponse.json({ status: "ok" });
 }

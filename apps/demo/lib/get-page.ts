@@ -7,6 +7,6 @@ export const getPage = (path: string) => {
   const allData: Record<string, Data> | null = fs.existsSync("database.json")
     ? JSON.parse(fs.readFileSync("database.json", "utf-8"))
     : null;
-
+  console.log('loading data from JSON')
   return allData ? allData[path] : null;
 };
